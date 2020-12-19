@@ -9,75 +9,92 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            File file = new File("textfile.txt");
-            file.createNewFile();
+
+            File f = new File("f.txt");
+            f.createNewFile();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
-        System.out.print("Введите текст: ");
+        System.out.print("Введите строку в файл: ");
 
         try {
-            FileWriter fileWriter = new FileWriter("textfile.txt");
-            fileWriter.write(scanner.nextLine());
-            fileWriter.close();
+
+            FileWriter fwriter = new FileWriter("f.txt");
+            fwriter.write(scan.nextLine());
+            fwriter.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
-            File file = new File("textfile.txt");
-            Scanner reader = new Scanner(file);
-            while (reader.hasNextLine()) {
-                String str = reader.nextLine();
-                System.out.println(str);
+
+            File f = new File("f.txt");
+            Scanner fscan = new Scanner(f);
+            while (fscan.hasNextLine()) {
+                String s = fscan.nextLine();
+                System.out.println(s);
             }
-            reader.close();
+            fscan.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
         try {
-            FileWriter fileWriter = new FileWriter("textfile.txt");
-            fileWriter.write(scanner.nextLine());
-            fileWriter.close();
+
+            FileWriter fwriter = new FileWriter("f.txt");
+            fwriter.write(scan.nextLine());
+            fwriter.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        String str = "";
+
+
+
+        String s = "";
 
         try {
-            File file = new File("textfile.txt");
-            Scanner reader = new Scanner(file);
-            while (reader.hasNextLine()) {
-                str += reader.nextLine();
-                System.out.println(str);
+
+            File f = new File("textfile.txt");
+            Scanner fscan = new Scanner(f);
+            while (fscan.hasNextLine()) {
+                s += fscan.nextLine();
+                System.out.println(s);
             }
-            reader.close();
+            fscan.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
         try {
-            FileWriter fileWriter = new FileWriter("textfile.txt");
-            fileWriter.write(str + scanner.nextLine());
-            fileWriter.close();
+
+            FileWriter fwriter = new FileWriter("f.txt");
+            fwriter.write(s + scan.nextLine());
+            fwriter.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
-            File file = new File("textfile.txt");
-            Scanner reader = new Scanner(file);
-            while (reader.hasNextLine()) {
-                String newStr = reader.nextLine();
+
+            File file = new File("f.txt");
+            Scanner fscan = new Scanner(file);
+            while (fscan.hasNextLine()) {
+                String newStr = fscan.nextLine();
                 System.out.println(newStr);
             }
-            reader.close();
+            fscan.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
