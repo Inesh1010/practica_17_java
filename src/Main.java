@@ -8,111 +8,77 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("============= CREATING A FILE ==============");
-
         try {
-            File myObj = new File("file.txt");
-            if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
-            } else {
-                System.out.println("File already exists.");
-            }
+            File file = new File("textfile.txt");
+            file.createNewFile();
         } catch (IOException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
-        // Ввести информацию
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("========== WRITING IN FILE ===========");
-        System.out.print("Enter a text: ");
+        System.out.print("Введите текст: ");
 
         try {
-            FileWriter myWriter = new FileWriter("file.txt");
-            myWriter.write(scanner.nextLine());
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+            FileWriter fileWriter = new FileWriter("textfile.txt");
+            fileWriter.write(scanner.nextLine());
+            fileWriter.close();
         } catch (IOException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
-        // Прочитать и вывести информацию
-
-        System.out.println("============ READING FROM FILE ==============");
-
         try {
-            File myObj = new File("file.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                System.out.println(data);
+            File file = new File("textfile.txt");
+            Scanner reader = new Scanner(file);
+            while (reader.hasNextLine()) {
+                String str = reader.nextLine();
+                System.out.println(str);
             }
-            myReader.close();
+            reader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
-        // Заменить информацию
-
-        System.out.println("=========== WRITING IN FILE AGAIN =============");
-
         try {
-            FileWriter myWriter = new FileWriter("file.txt");
-            myWriter.write(scanner.nextLine());
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+            FileWriter fileWriter = new FileWriter("textfile.txt");
+            fileWriter.write(scanner.nextLine());
+            fileWriter.close();
         } catch (IOException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
-        System.out.println("============ READING FROM FILE AGAIN ==============");
-
-        String data = "";
+        String str = "";
 
         try {
-            File myObj = new File("file.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                data += myReader.nextLine();
-                System.out.println(data);
+            File file = new File("textfile.txt");
+            Scanner reader = new Scanner(file);
+            while (reader.hasNextLine()) {
+                str += reader.nextLine();
+                System.out.println(str);
             }
-            myReader.close();
+            reader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
-        // Добавить в конец файла новую информацию
-
-        System.out.println("=========== WRITING IN FILE FOR THE LAST TIME =============");
-
         try {
-            FileWriter myWriter = new FileWriter("file.txt");
-            myWriter.write(data + scanner.nextLine());
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+            FileWriter fileWriter = new FileWriter("textfile.txt");
+            fileWriter.write(str + scanner.nextLine());
+            fileWriter.close();
         } catch (IOException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
-        System.out.println("============ READING FROM FILE FOR THE LAST TIME ==============");
-
         try {
-            File myObj = new File("file.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String newData = myReader.nextLine();
-                System.out.println(newData);
+            File file = new File("textfile.txt");
+            Scanner reader = new Scanner(file);
+            while (reader.hasNextLine()) {
+                String newStr = reader.nextLine();
+                System.out.println(newStr);
             }
-            myReader.close();
+            reader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
